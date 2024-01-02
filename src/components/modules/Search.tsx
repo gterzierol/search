@@ -45,6 +45,9 @@ const Search = () => {
         } else {
           setOpenModal(true);
         }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
   useEffect(() => {
