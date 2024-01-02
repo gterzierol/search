@@ -29,7 +29,7 @@ const Search = () => {
         method: "POST",
         body: JSON.stringify({ departure, destination }),
       });
-      const hasFlight = await data.json();
+      const hasFlight = await JSON.parse(await data.json());
 
       if (hasFlight) {
         router.push(
