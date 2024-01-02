@@ -1,7 +1,7 @@
 import { Flights } from "@/types/types";
 import { readFile } from "fs/promises";
 
-export async function POST(request: Request) {
+export async function GET(request: Request) {
   const readedData = await readFile(
     process.cwd() + "/src/data/db.json",
     "utf-8"

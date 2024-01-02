@@ -27,8 +27,7 @@ const Search = () => {
 
   const checkFlight = () => {
     fetch("/api/hasFlight", {
-      method: "POST",
-      body: JSON.stringify({ departure, destination }),
+      method: "GET",
     })
       .then((res) => res.json())
       .then((data) => {
