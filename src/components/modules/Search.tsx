@@ -30,7 +30,8 @@ const Search = () => {
         body: JSON.stringify({ departure, destination }),
       });
       const hasFlight = await data.json();
-      if (hasFlight === "true") {
+      const jsonData = JSON.parse(hasFlight);
+      if (jsonData.hasFlight === "true") {
         router.push(
           "/list?departure=" +
             departure +

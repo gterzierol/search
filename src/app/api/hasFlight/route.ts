@@ -29,5 +29,5 @@ export async function POST(request: Request) {
     );
   });
 
-  return Response.json(hasFlight);
+  return Response.json({ hasFlight });
 }
