@@ -28,10 +28,11 @@ const Search = () => {
       method: "POST",
       body: JSON.stringify({ departure, destination }),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        return res.json();
+      })
       .then((data) => {
-        const hasFlight = JSON.parse(data);
-        if (hasFlight === true) {
+        if (data === "true") {
           router.push(
             "/list?departure=" +
               departure +
