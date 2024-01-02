@@ -30,17 +30,17 @@ const Search = () => {
         body: JSON.stringify({ departure, destination }),
       });
       const hasFlight = await data.json();
-      if (JSON.parse(hasFlight)) {
-        // router.push(
-        //   "/list?departure=" +
-        //     departure +
-        //     "&destination=" +
-        //     destination +
-        //     "&passenger=" +
-        //     passenger +
-        //     "&cabin=" +
-        //     cabin
-        // );
+      if (hasFlight === "true") {
+        router.push(
+          "/list?departure=" +
+            departure +
+            "&destination=" +
+            destination +
+            "&passenger=" +
+            passenger +
+            "&cabin=" +
+            cabin
+        );
       } else {
         setOpenModal(true);
       }
