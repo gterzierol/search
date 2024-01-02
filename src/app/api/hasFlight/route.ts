@@ -1,11 +1,11 @@
-import { Root } from "@/types/types";
+import { Flights } from "@/types/types";
 import { readFile } from "fs/promises";
 
 interface IFlightOptions {
   departure: string;
   destination: string;
 }
-let data: Root;
+let data: Flights;
 export async function POST(request: Request) {
   if (!data) {
     data = JSON.parse(
