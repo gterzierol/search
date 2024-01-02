@@ -25,7 +25,7 @@ const Search = () => {
   const router = useRouter();
   const checkFlight = async () => {
     if (departure && destination) {
-      const data = await fetch("http://localhost:3000/api/hasFlight", {
+      const data = await fetch("http://127.0.0.1:3000/api/hasFlight", {
         method: "POST",
         body: JSON.stringify({ departure, destination }),
       });
@@ -50,7 +50,7 @@ const Search = () => {
   useEffect(() => {
     const localDatum = storage.local.get("datums", "");
     if (!localDatum) {
-      fetch("http://localhost:3000/api/getDatum", {
+      fetch("http://127.0.0.1:3000/api/getDatum", {
         method: "GET",
       })
         .then((data) => data.json())

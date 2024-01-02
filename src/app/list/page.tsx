@@ -2,7 +2,7 @@
 import Reservation from "@/components/modules/Reservation";
 
 export default async function Main() {
-  const data = await fetch("http://localhost:3000/api/main", {
+  const data = await fetch("http://127.0.0.1:3000/api/main", {
     method: "GET",
   });
   const flightData = await data.json();
