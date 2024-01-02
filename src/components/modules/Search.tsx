@@ -25,10 +25,13 @@ const Search = () => {
   const router = useRouter();
   const checkFlight = async () => {
     if (departure && destination) {
-      const data = await fetch("http://127.0.0.1:3000/api/hasFlight", {
-        method: "POST",
-        body: JSON.stringify({ departure, destination }),
-      });
+      const data = await fetch(
+        "https://search-tan-eta.vercel.app/api/hasFlight",
+        {
+          method: "POST",
+          body: JSON.stringify({ departure, destination }),
+        }
+      );
       const hasFlight = await data.json();
 
       if (hasFlight) {
@@ -50,7 +53,7 @@ const Search = () => {
   useEffect(() => {
     const localDatum = storage.local.get("datums", "");
     if (!localDatum) {
-      fetch("http://127.0.0.1:3000/api/getDatum", {
+      fetch("https://search-tan-eta.vercel.app/api/getDatum", {
         method: "GET",
       })
         .then((data) => data.json())

@@ -7,7 +7,7 @@ export default function Main() {
   const [flightData, setFlightData] = useState<Flights>();
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/api/main")
+    fetch("https://search-tan-eta.vercel.app/api/main")
       .then((res) => res.json())
       .then((data) => {
         setFlightData(JSON.parse(data));
