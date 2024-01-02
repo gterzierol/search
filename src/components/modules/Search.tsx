@@ -61,7 +61,7 @@ const Search = () => {
   useEffect(() => {
     const localDatum = storage.local.get("datums", "");
     if (!localDatum) {
-      fetch("/api/getInitData", {
+      fetch("/api/getDatum", {
         method: "GET",
       })
         .then((data) => data.json())
