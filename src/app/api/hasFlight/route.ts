@@ -8,9 +8,11 @@ interface IFlightOptions {
 let data: Flights;
 export async function POST(request: Request) {
   if (!data) {
-    data = JSON.parse(
-      await readFile(process.cwd() + "/src/data/db.json", "utf-8")
+    const readedData = await readFile(
+      process.cwd() + "/src/data/db.json",
+      "utf-8"
     );
+    data = await JSON.parse(readedData);
   }
   const { departure, destination }: IFlightOptions = JSON.parse(
     (await request.body
