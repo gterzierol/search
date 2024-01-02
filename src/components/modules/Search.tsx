@@ -14,6 +14,7 @@ import styles from "./Search.module.scss";
 import SearchInput from "../ui/SearchInput/SearchInput";
 import { Datums } from "@/types/datum";
 import Modal from "../ui/Modal/Modal";
+import { Flight } from "@/types/types";
 const Search = () => {
   const [datums, setDatums] = useState<Datums>();
   const [passenger, setPassenger] = useState(1);
@@ -23,16 +24,25 @@ const Search = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const router = useRouter();
+
   const checkFlight = () => {
     fetch("/api/hasFlight", {
       method: "POST",
       body: JSON.stringify({ departure, destination }),
     })
-      .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
-        if (data === "true") {
+        const flightData = JSON.parse(data);
+        const hasFlight = flightData.flights.some((flight: Flight) => {
+          return (
+            flight.originAirport.city.name.toLowerCase() ===
+              departure.toLocaleLowerCase("tr-TR") &&
+            flight.destinationAirport.city.name.toLowerCase() ===
+              destination.toLocaleLowerCase("tr-TR")
+          );
+        });
+
+        if (hasFlight) {
           router.push(
             "/list?departure=" +
               departure +
@@ -46,15 +56,12 @@ const Search = () => {
         } else {
           setOpenModal(true);
         }
-      })
-      .catch((err) => {
-        console.log(err);
       });
   };
   useEffect(() => {
     const localDatum = storage.local.get("datums", "");
     if (!localDatum) {
-      fetch("/api/getDatum", {
+      fetch("/api/getInitData", {
         method: "GET",
       })
         .then((data) => data.json())
