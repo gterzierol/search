@@ -23,26 +23,29 @@ const Search = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const router = useRouter();
-  const checkFlight = async () => {
-    const data = await fetch("/api/hasFlight", {
+  const checkFlight = () => {
+    fetch("/api/hasFlight", {
       method: "POST",
       body: JSON.stringify({ departure, destination }),
-    });
-    const hasFlight = await data.json();
-    if (hasFlight === true) {
-      router.push(
-        "/list?departure=" +
-          departure +
-          "&destination=" +
-          destination +
-          "&passenger=" +
-          passenger +
-          "&cabin=" +
-          cabin
-      );
-    } else {
-      setOpenModal(true);
-    }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const hasFlight = JSON.parse(data);
+        if (hasFlight === true) {
+          router.push(
+            "/list?departure=" +
+              departure +
+              "&destination=" +
+              destination +
+              "&passenger=" +
+              passenger +
+              "&cabin=" +
+              cabin
+          );
+        } else {
+          setOpenModal(true);
+        }
+      });
   };
   useEffect(() => {
     const localDatum = storage.local.get("datums", "");
