@@ -1,0 +1,96 @@
+@import "../../../styles/colors.module.scss";
+.passengerCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $gray-100;
+  height: 66px;
+  padding: 12px;
+  min-width: 97px;
+  .body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    span {
+      &:first-child {
+        align-self: flex-end;
+      }
+    }
+    .icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+      span {
+        font-size: small;
+      }
+    }
+  }
+
+  .picker {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    position: absolute;
+    top: 84px;
+    left: 0;
+    right: 0;
+    background-color: $white;
+    color: #000;
+
+    .cabinSelection {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        input {
+          margin-right: 12px;
+        }
+      }
+    }
+    .counter {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+
+      p {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .operator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 4px;
+        background-color: $gray-400;
+        cursor: pointer;
+        &:hover {
+          background-color: $gray-200;
+          color: white;
+        }
+        &:active {
+          background-color: $gray-300;
+          color: white;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import "../../../styles/colors.module.scss";
+
+.button {
+  height: 66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $red-100;
+  color: #fff;
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.disabled {
+  background-color: $gray-200;
+  color: $gray-400;
+  opacity: 0.2;
+  pointer-events: none;
+  cursor: unset;
+}

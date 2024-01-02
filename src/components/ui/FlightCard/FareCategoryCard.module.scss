@@ -1,0 +1,58 @@
+@import "../../../styles/colors.module.scss";
+
+.fareCategoryCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $gray-500;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  width: 100%;
+  white-space: nowrap;
+
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    span:nth-child(2) {
+      display: flex;
+      font-weight: 500;
+    }
+    .brand {
+      font-size: small;
+      font-weight: 500;
+    }
+    .currency {
+      margin-right: 4px;
+      align-self: flex-start;
+      font-size: 8px;
+    }
+  }
+
+  .rights {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    background-color: white;
+    .right {
+      color: $gray-200;
+      line-height: 28px;
+      font-weight: 500;
+      font-size: xx-small;
+      font-weight: 500;
+      padding-left: 6px;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+
+  .buttonWidth {
+    width: 100%;
+    font-weight: 500;
+    font-size: small;
+    cursor: pointer;
+  }
+}

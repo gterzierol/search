@@ -1,0 +1,21 @@
+@import "../../styles/colors.module.scss";
+.Search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: $background-gray;
+  padding: 24px 26px 20px;
+  gap: 16px;
+  min-width: 320px;
+  flex-wrap: wrap;
+  .searchFlight {
+    display: flex;
+    gap: 16px;
+  }
+  .selectOptions {
+    position: relative;
+    display: flex;
+    gap: 16px;
+  }
+}

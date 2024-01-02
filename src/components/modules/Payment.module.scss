@@ -1,0 +1,41 @@
+@import "../../styles/colors.module.scss";
+.payment {
+  display: flex;
+  white-space: nowrap;
+  flex-direction: column;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  margin-top: 24px;
+  .status {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 14px;
+    div {
+      margin-left: 14px;
+    }
+  }
+  .total {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      &:nth-child(1) {
+        font-weight: 200;
+        font-size: 40px;
+        color: $gray-200;
+      }
+    }
+  }
+  .turnBack {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    .buttonWidth {
+      margin-top: 14px;
+      height: 40px;
+      width: 200px;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+import classNames from "classnames";
+import React from "react";
+
+const IconPlane = ({ rotate }: { rotate: number }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="12.383"
+      viewBox="0 0 24 12.383"
+    >
+      <g
+        id="red"
+        transform={classNames(
+          "translate(0 -6.33)",
+          rotate && `rotate(${rotate})`
+        )}
+      >
+        <path
+          id="Path_40"
+          data-name="Path 40"
+          d="M21.4,10.01H6.09L1,6.33H0l1.9,4.19a4.18,4.18,0,0,0,3.7,2.453H21.4c1.19,0,2.6-.62,2.6-1.38,0-.78-1.41-1.582-2.6-1.582Zm-13.03,8.7h1l6-4.55H11.89a2.19,2.19,0,0,0-2,1.25l-1.52,3.3Z"
+          fill="#000"
+        />
+      </g>
+    </svg>
+  );
+};
+
+export default IconPlane;
